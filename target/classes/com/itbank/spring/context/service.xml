@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="pool" class="com.itbank.common.PoolManager" />
+	
+	<bean id="boardDAO" class="com.itbank.model.repository.JdbcBoardDAO">
+	</bean>
+	
+	<bean id="boardService" class="com.itbank.model.service.JdbcBoardService">
+		<property name="pool">
+			<ref bean="pool"/>
+		</property>
+		<property name="jdbcBoardDAO" ref="boardDAO"/>		
+	</bean>
+</beans> 
+
+
+
+
+

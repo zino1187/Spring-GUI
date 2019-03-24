@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath:com/itbank/spring/context/service.xml" />
+		
+	<!-- Layout  -->
+	<bean id="flowLayout" class="java.awt.FlowLayout"/>
+
+	<!-- ID 입력 텍스트 필드 -->
+	<bean id="t_id" class="javax.swing.JTextField">
+		<constructor-arg type="int">
+			<value>20</value>
+		</constructor-arg>
+	</bean>	
+
+	<bean id="t_pass" class="javax.swing.JPasswordField">
+		<constructor-arg index="0" value="20" type="int"/>
+	</bean>		
+		
+	<bean id="t_name" class="javax.swing.JTextField">
+		<constructor-arg index="0" value="20" type="int"/>
+	</bean>		
+	
+	<bean id="p_south" class="javax.swing.JPanel"/>
+	
+	<bean id="bt_regist" class="javax.swing.JButton">
+		<property name="label" value="등록"/>
+	</bean>		
+	
+	<!-- main 윈도우  -->
+	
+	<bean id="mainWindow" class="com.itbank.view.MainWindow">
+		<constructor-arg index="0" type="java.lang.String" value="나의 스프링 윈도우"/>
+		<constructor-arg index="1" ref="flowLayout"/>
+		<constructor-arg index="2" ref="t_id"/>
+		<constructor-arg index="3" ref="t_pass"/>
+		<constructor-arg index="4" ref="t_name"/>
+		<constructor-arg index="5" ref="p_south"/>
+		<constructor-arg index="6" ref="bt_regist"/>
+		<property name="boardService" ref="boardService"/>
+	</bean>
+	
+	
+</beans>
+
+
+
+
+
